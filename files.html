@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Luminar - Files</title>
+    <link rel="icon" href="images/luminar-logo-small.png">
+</head>
+<body>
+<nav class="navbar">
+    <a href=""><img src="images/luminar-logo.png" class="luminar-logo" alt=""></a>
+    <ul class="navlist">
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="about.html" id="nav-about">About Me</a></li>
+        <li><a href="music.html" id="nav-music">Music</a></li>
+        <li><a href="videos.html" id="nav-videos">Videos</a></li>
+        <li><a href="files.html" id="nav-files" aria-current="page">Files</a></li>
+    </ul>
+</nav>
+<div class="background-image-crop">
+    <img src="images/taki-bridge.jpg" alt="">
+    <div class="text-on-image">
+        <h1 id="files-hero-title">Files</h1>
+        <p data-lang="heroSubtitle">Find all your downloadable files here</p>
+    </div>
+</div>
+<div class="search">
+    <div>
+        <input type="text" placeholder="Search files...">
+        <a href=""><img src="images/search.png" alt=""></a>
+    </div>
+</div>
+<div class="main-content">
+    <div class="text-1">
+        <div class="files">
+            <h2 data-lang="files">Download files here</h2>
+            <p id="section-title">
+                <span data-lang="filelist">Downloadable files</span>
+                (<span id="results-count">0</span>)
+            </p>
+            <ul class="file-list" id="file-list">
+                <li><a href="files/line 6 helix native presets.rar" download><img src="images/zip.png" alt="">line 6 helix native presets.rar</a></li>
+                <li><a href="files/Toast's presets.rar" download><img src="images/rar.png" alt="">Toast's presets.rar</a></li>
+                <li><a href="" download><img src="images/zip.png" alt="">file.zip</a></li>
+                <li><a href="" download><img src="images/zip.png" alt="">file.zip</a></li>
+                <li><a href="" download><img src="images/zip.png" alt="">file.zip</a></li>
+                <li><a href="" download><img src="images/zip.png" alt="">file.zip</a></li>
+                <li><a href="files/Toast's presets.rar" download><img src="images/rar.png" alt="">Toast's presets.rar</a></li>
+                <li><a href="" download><img src="images/zip.png" alt="">file.zip</a></li>
+                <li><a href="" download><img src="images/zip.png" alt="">file.zip</a></li>
+                <li><a href="" download><img src="images/zip.png" alt="">file.zip</a></li>
+            </ul>      
+        </div>
+        <p data-lang="fileText1">
+            The files available for download on this page are provided for free and are intended for personal use only.
+            They may include music samples, presets, project files, or other resources related to music production.
+            By downloading these files, you agree to use them in accordance with the terms specified 
+            by the creator and to respect any copyright or licensing restrictions that may apply.
+        </p>
+        <p data-lang="fileText2">
+            Find more files on my social media platforms, where I regularly share new content and updates about my music production journey.
+        </p>
+    </div>
+    <div class="text-1">
+        <h2>Tutorials</h2>
+    </div>    
+</div>
+<div class="footer">
+    <img src="images/luminar-logo.png" class="logo-footer" alt="logo">
+    <ul class="social-media">
+        <li><a href="https://www.tiktok.com/@prod.luminar?_r=1&_t=ZN-96M1bp7JBuY"><img src="images/TikTok.png" alt=""></a></li>
+        <li><a href="https://youtube.com/@prod.luminar?si=uU-DsU_S15RflDt3"><img src="images/YouTube.png" alt=""></a></li>
+        <li><a href=""><img src="images/facobook.png" alt=""></a></li>
+        <li><a href="https://www.instagram.com/luminar_music/"><img src="images/Insta.png" alt=""></a></li>
+        <li><a href="https://discord.gg/rSsydXQe"><img src="images/Discord.png" alt=""></a></li>
+        <li><a href=""><img src="images/Spotify.png" alt=""></a></li>
+        <li><a href=""><img src="images/Apple-music.png" alt=""></a></li>
+        <li><a href=""><img src="images/Amazon-music.png" alt=""></a></li>
+        <li><a href=""><img src="images/Deezer.png" alt=""></a></li>
+    </ul>
+    <div class="lang-select">
+        <button id="lang-btn">
+            <img src="images/globe.png" alt="globe">
+            <p data-lang="language">Language</p>
+        </button>
+        <ul class="lang-list" id="lang-list">
+            <li id="lang-en">English</li>
+            <li id="lang-de">Deutsch</li>
+            <li id="lang-fr">Français</li>
+            <li id="lang-es">Español</li>
+            <li id="lang-pt">Português</li>
+            <li id="lang-pl">Polski</li>
+            <li id="lang-jp">日本語</li>
+            <li id="lang-zh">简体中文</li>
+            <li id="lang-kr">한국어</li>
+        </ul>
+    </div>
+    <ul class="navlist-footer">
+        <li><a href="index.html" id="footer-home">Home</a></li>
+        <li><a href="about.html" id="footer-about">About Me</a></li>
+        <li><a href="music.html" id="footer-music">Music</a></li>
+        <li><a href="videos.html" id="footer-videos">Videos</a></li>
+        <li><a href="files.html" id="footer-files" aria-current="page">Files</a></li>
+    </ul>
+    <div class="footer-bottom">
+        <p data-lang="copyright"></p>
+    </div>
+</div>
+<script>
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } 
+        
+        else {
+            navbar.classList.remove("scrolled");
+        }
+
+    });
+    const searchInput = document.querySelector(".search input");
+    const items = document.querySelectorAll(".file-list li");
+    const resultsCount = document.getElementById("results-count");
+
+    function updateResults() {
+
+        const value = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        items.forEach(function(item) {
+
+            const text = item.textContent.toLowerCase();
+
+            if (value === "") {
+                item.style.display = "list-item";
+                visibleCount++;
+            } 
+            else if (text.includes(value)) {
+                item.style.display = "list-item";
+                visibleCount++;
+            } 
+            else {
+                item.style.display = "none";
+            }
+
+        });
+
+        resultsCount.textContent = visibleCount;
+    }
+
+    searchInput.addEventListener("input", updateResults);
+
+    updateResults();
+    const btn = document.getElementById("lang-btn");
+    const box = document.getElementById("lang-list");
+
+    box.style.display = "none";
+
+    btn.addEventListener("click", () => {
+        box.style.display = box.style.display === "none" ? "block" : "none";
+    });
+
+    document.querySelectorAll(".lang-list li").forEach(item => {
+        item.addEventListener("click", () => box.style.display = "none");
+    });
+
+    const translations = {
+    en: {
+        heroTitle: "Files",
+        navHome: "Home",
+        navAbout: "About Me",
+        navMusic: "Music",
+        navVideos: "Videos",
+        navFiles: "Files",
+        footerHome: "Home",
+        footerAbout: "About Me",
+        footerMusic: "Music",
+        footerVideos: "Videos",
+        footerFiles: "Files",
+        heroSubtitle: "Find all downloadable files here",
+        searchPlaceholder: "Search files...",
+        files: "Download files here",
+        filelist: "Downloadable files",
+        fileText1: "The files available for download on this page are provided free of charge and are intended for personal use only. \
+            They may include music samples, presets, project files, or other resources related to music production. \
+            By downloading these files, you agree to use them in accordance with the terms specified by the creator and to respect any applicable copyright or licensing restrictions.",
+        fileText2: "Find more files on my social media platforms, where I regularly share new content and updates about my music production journey.",
+        language: "Language",
+        copyright: "Copyright ©2026 designed by Felix Iwobi"
+    },
+
+    de: {
+        heroTitle: "Dateien",
+        navHome: "Startseite",
+        navAbout: "Über mich",
+        navMusic: "Musik",
+        navVideos: "Videos",
+        navFiles: "Dateien",
+        footerHome: "Startseite",
+        footerAbout: "Über mich",
+        footerMusic: "Musik",
+        footerVideos: "Videos",
+        footerFiles: "Dateien",
+        heroSubtitle: "Hier findest du alle herunterladbaren Dateien",
+        searchPlaceholder: "Dateien suchen...",
+        files: "Dateien hier herunterladen",
+        filelist: "Herunterladbare Dateien",
+        fileText1: "Die auf dieser Seite zum Download bereitgestellten Dateien werden kostenlos zur Verfügung gestellt und sind ausschließlich für den persönlichen Gebrauch bestimmt. \
+            Sie können Musiksamples, Presets, Projektdateien oder andere Ressourcen im Zusammenhang mit Musikproduktion enthalten. \
+            Mit dem Herunterladen dieser Dateien erklärst du dich damit einverstanden, sie gemäß den vom Urheber festgelegten Bedingungen zu nutzen und alle geltenden urheberrechtlichen oder lizenzrechtlichen Beschränkungen zu beachten.",
+        fileText2: "Weitere Dateien findest du auf meinen Social-Media-Kanälen, wo ich regelmäßig neue Inhalte und Updates zu meiner Musikproduktionsreise teile.",
+        language: "Sprache",
+        copyright: "Copyright ©2026 gestaltet von Felix Iwobi"
+    },
+
+    fr: {
+        heroTitle: "Fichiers",
+        navHome: "Accueil",
+        navAbout: "À propos",
+        navMusic: "Musique",
+        navVideos: "Vidéos",
+        navFiles: "Fichiers",
+        footerHome: "Accueil",
+        footerAbout: "À propos",
+        footerMusic: "Musique",
+        footerVideos: "Vidéos",
+        footerFiles: "Fichiers",
+        heroSubtitle: "Retrouvez ici tous les fichiers téléchargeables",
+        searchPlaceholder: "Rechercher des fichiers...",
+        files: "Télécharger les fichiers ici",
+        filelist: "Fichiers téléchargeables",
+        fileText1: "Les fichiers disponibles au téléchargement sur cette page sont fournis gratuitement et sont destinés exclusivement à un usage personnel. \
+            Ils peuvent contenir des échantillons musicaux, des préréglages, des fichiers de projet ou d'autres ressources liées à la production musicale. \
+            En téléchargeant ces fichiers, vous acceptez de les utiliser conformément aux conditions définies par leur créateur et de respecter toute restriction de droits d'auteur ou de licence applicable.",
+        fileText2: "Retrouvez davantage de fichiers sur mes réseaux sociaux, où je partage régulièrement de nouveaux contenus et des actualités sur mon parcours dans la production musicale.",
+        language: "Langue",
+        copyright: "Copyright ©2026 conçu par Felix Iwobi"
+    },
+
+    es: {
+        heroTitle: "Archivos",
+        navHome: "Inicio",
+        navAbout: "Sobre mí",
+        navMusic: "Música",
+        navVideos: "Videos",
+        navFiles: "Archivos",
+        footerHome: "Inicio",
+        footerAbout: "Sobre mí",
+        footerMusic: "Música",
+        footerVideos: "Videos",
+        footerFiles: "Archivos",
+        heroSubtitle: "Aquí encontrarás todos los archivos descargables",
+        searchPlaceholder: "Buscar archivos...",
+        files: "Descargar archivos aquí",
+        filelist: "Archivos descargables",
+        fileText1: "Los archivos disponibles para descargar en esta página se ofrecen gratuitamente y están destinados únicamente para uso personal. \
+            Pueden incluir muestras musicales, presets, archivos de proyecto u otros recursos relacionados con la producción musical. \
+            Al descargar estos archivos, aceptas utilizarlos de acuerdo con las condiciones especificadas por el creador y respetar cualquier restricción de derechos de autor o licencia aplicable.",
+        fileText2: "Encuentra más archivos en mis redes sociales, donde comparto regularmente contenido nuevo y novedades sobre mi trayectoria en la producción musical.",
+        language: "Idioma",
+        copyright: "Copyright ©2026 diseñado por Felix Iwobi"
+    },
+
+    pt: {
+        heroTitle: "Arquivos",
+
+        navHome: "Início",
+        navAbout: "Sobre mim",
+        navMusic: "Música",
+        navVideos: "Vídeos",
+        navFiles: "Arquivos",
+
+        footerHome: "Início",
+        footerAbout: "Sobre mim",
+        footerMusic: "Música",
+        footerVideos: "Vídeos",
+        footerFiles: "Arquivos",
+
+        heroSubtitle: "Encontre todos os arquivos para download aqui",
+
+        searchPlaceholder: "Pesquisar arquivos...",
+
+        files: "Baixe arquivos aqui",
+        filelist: "Arquivos para download",
+
+        fileText1: "Os arquivos disponíveis para download nesta página são fornecidos gratuitamente e destinam-se apenas para uso pessoal. \
+            Eles podem incluir samples musicais, presets, arquivos de projeto ou outros recursos relacionados à produção musical. \
+            Ao baixar estes arquivos, você concorda em utilizá-los de acordo com os termos especificados pelo criador e respeitar quaisquer restrições de direitos autorais ou licença aplicáveis.",
+
+        fileText2: "Encontre mais arquivos nas minhas redes sociais, onde compartilho regularmente novos conteúdos e atualizações sobre minha jornada na produção musical.",
+
+        language: "Idioma",
+
+        copyright: "Copyright ©2026 projetado por Felix Iwobi"
+    },
+
+    pl: {
+        heroTitle: "Pliki",
+
+        navHome: "Strona główna",
+        navAbout: "O mnie",
+        navMusic: "Muzyka",
+        navVideos: "Wideo",
+        navFiles: "Pliki",
+
+        footerHome: "Strona główna",
+        footerAbout: "O mnie",
+        footerMusic: "Muzyka",
+        footerVideos: "Wideo",
+        footerFiles: "Pliki",
+
+        heroSubtitle: "Znajdziesz tutaj wszystkie pliki do pobrania",
+
+        searchPlaceholder: "Szukaj plików...",
+
+        files: "Pobierz pliki tutaj",
+        filelist: "Pliki do pobrania",
+
+        fileText1: "Pliki dostępne do pobrania na tej stronie są udostępniane bezpłatnie i przeznaczone wyłącznie do użytku osobistego. \
+            Mogą one zawierać sample muzyczne, presety, pliki projektów lub inne zasoby związane z produkcją muzyczną. \
+            Pobierając te pliki, zgadzasz się używać ich zgodnie z warunkami określonymi przez twórcę oraz przestrzegać wszelkich obowiązujących ograniczeń praw autorskich i licencyjnych.",
+
+        fileText2: "Więcej plików znajdziesz na moich mediach społecznościowych, gdzie regularnie udostępniam nowe treści i aktualizacje dotyczące mojej muzycznej podróży.",
+
+        language: "Język",
+
+        copyright: "Copyright ©2026 projekt: Felix Iwobi"
+    },
+
+    jp: {
+        heroTitle: "ファイル",
+        navHome: "ホーム",
+        navAbout: "私について",
+        navMusic: "音楽",
+        navVideos: "動画",
+        navFiles: "ファイル",
+        footerHome: "ホーム",
+        footerAbout: "私について",
+        footerMusic: "音楽",
+        footerVideos: "動画",
+        footerFiles: "ファイル",
+        heroSubtitle: "ダウンロード可能なファイルはこちらからご覧いただけます",
+        searchPlaceholder: "ファイルを検索...",
+        files: "こちらからファイルをダウンロード",
+        filelist: "ダウンロード可能なファイル",
+        fileText1: "このページで配布されているファイルは無料で提供されており、個人利用のみを目的としています。 \
+            これらのファイルには、音楽サンプル、プリセット、プロジェクトファイル、または音楽制作に関連するその他のリソースが含まれる場合があります。 \
+            これらのファイルをダウンロードすることにより、作成者が定めた利用規約に従って使用し、適用される著作権やライセンス上の制限を遵守することに同意したものとみなされます。",
+        fileText2: "私のソーシャルメディアでは、音楽制作に関する新しいコンテンツや最新情報を定期的に共有しています。ぜひそちらでもファイルをご覧ください。",
+        language: "言語",
+        copyright: "Copyright ©2026 Felix Iwobi"
+    },
+
+    zh: {
+        heroTitle: "文件",
+        navHome: "主页",
+        navAbout: "关于我",
+        navMusic: "音乐",
+        navVideos: "视频",
+        navFiles: "文件",
+        footerHome: "主页",
+        footerAbout: "关于我",
+        footerMusic: "音乐",
+        footerVideos: "视频",
+        footerFiles: "文件",
+        heroSubtitle: "在这里可以找到所有可下载的文件",
+        searchPlaceholder: "搜索文件...",
+        files: "在这里下载文件",
+        filelist: "可下载文件",
+        fileText1: "本页面提供的下载文件均为免费资源，仅供个人使用。 \
+            这些文件可能包含音乐采样、预设、项目文件或其他与音乐制作相关的资源。 \
+            下载这些文件即表示您同意按照创作者规定的条款使用它们，并遵守任何适用的版权或许可限制。",
+        fileText2: "您可以在我的社交媒体平台上找到更多文件，我会定期分享新内容以及关于我音乐制作旅程的最新动态。",
+        language: "语言",
+        copyright: "Copyright ©2026 Felix Iwobi"
+    },
+
+    kr: {
+        heroTitle: "파일",
+
+        navHome: "홈",
+        navAbout: "소개",
+        navMusic: "음악",
+        navVideos: "영상",
+        navFiles: "파일",
+
+        footerHome: "홈",
+        footerAbout: "소개",
+        footerMusic: "음악",
+        footerVideos: "영상",
+        footerFiles: "파일",
+
+        heroSubtitle: "여기에서 모든 다운로드 가능한 파일을 찾을 수 있습니다",
+
+        searchPlaceholder: "파일 검색...",
+
+        files: "여기에서 파일 다운로드",
+        filelist: "다운로드 가능한 파일",
+
+        fileText1: "이 페이지에서 제공되는 다운로드 파일은 무료이며 개인적인 용도로만 사용할 수 있습니다. \
+            여기에는 음악 샘플, 프리셋, 프로젝트 파일 또는 음악 제작과 관련된 기타 자료가 포함될 수 있습니다. \
+            이러한 파일을 다운로드함으로써 사용자는 제작자가 지정한 조건에 따라 파일을 사용하고 적용 가능한 저작권 및 라이선스 제한을 준수하는 데 동의하게 됩니다.",
+
+        fileText2: "제 소셜 미디어 플랫폼에서도 더 많은 파일을 찾을 수 있으며, 음악 제작 여정에 대한 새로운 콘텐츠와 업데이트를 정기적으로 공유하고 있습니다.",
+
+        language: "언어",
+
+        copyright: "Copyright ©2026 Felix Iwobi"
+    }
+};
+
+    function setLanguage(lang) {
+
+        const t = translations[lang];
+
+        document.querySelectorAll("[data-lang]").forEach(element => {
+
+            const key = element.dataset.lang;
+
+            if (t[key]) {
+                element.textContent = t[key];
+            }
+
+        });
+
+    document.getElementById("files-hero-title").textContent = t.heroTitle;
+
+    document.getElementById("nav-home").textContent = t.navHome;
+    document.getElementById("nav-about").textContent = t.navAbout;
+    document.getElementById("nav-music").textContent = t.navMusic;
+    document.getElementById("nav-videos").textContent = t.navVideos;
+    document.getElementById("nav-files").textContent = t.navFiles;
+
+    document.getElementById("footer-home").textContent = t.footerHome;
+    document.getElementById("footer-about").textContent = t.footerAbout;
+    document.getElementById("footer-music").textContent = t.footerMusic;
+    document.getElementById("footer-videos").textContent = t.footerVideos;
+    document.getElementById("footer-files").textContent = t.footerFiles;
+
+    document.querySelector(".search input").placeholder = t.searchPlaceholder;
+
+    localStorage.setItem("language", lang);
+
+    }
+
+    document.getElementById("lang-en").addEventListener("click", () => setLanguage("en"));
+    document.getElementById("lang-de").addEventListener("click", () => setLanguage("de"));
+    document.getElementById("lang-fr").addEventListener("click", () => setLanguage("fr"));
+    document.getElementById("lang-es").addEventListener("click", () => setLanguage("es"));
+    document.getElementById("lang-jp").addEventListener("click", () => setLanguage("jp"));
+    document.getElementById("lang-zh").addEventListener("click", () => setLanguage("zh"));
+    document.getElementById("lang-pt").addEventListener("click", () => setLanguage("pt"));
+    document.getElementById("lang-kr").addEventListener("click", () => setLanguage("kr"));
+    document.getElementById("lang-pl").addEventListener("click", () => setLanguage("pl"));
+
+    const saved = localStorage.getItem("language");
+    if (saved && translations[saved]) setLanguage(saved);
+</script>
+</body>
+</html>
