@@ -1197,12 +1197,12 @@ a[aria-current="page"] {
 @media (max-width: 500px) {
     .song-player {
         flex-direction: column;
-        top: 80%;
+        top: 76%;
         left: 50%;
         transform: translateX(-50%);
         width: 94%;
         border-radius: 0;
-        padding: 25px 15px 45px 15px;
+        padding: 25px 15px 50px 15px;
     }
 
     .song-player img{
