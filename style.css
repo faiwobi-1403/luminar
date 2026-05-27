@@ -1228,6 +1228,12 @@ a[aria-current="page"] {
     .player-song-info{
         transform: translateY(-10px);
     }
+
+    .player-song-info{
+        justify-content: center;
+        align-items: center;
+        min-width: 100%;
+    }
 }
 
 @media (max-width: 900px) {
