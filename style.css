@@ -1215,6 +1215,7 @@ a[aria-current="page"] {
 
     .song-popup-box-small {
         min-width: 75%;
+        top: 40%;
     }
 
     .song-player-layout{
