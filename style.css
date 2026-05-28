@@ -1232,7 +1232,7 @@ a[aria-current="page"] {
 @media (max-width: 500px) {
     .song-player {
         flex-direction: column;
-        top: 73%;
+        top: 72%;
         left: 50%;
         transform: translateX(-50%);
         width: 94%;
@@ -1494,13 +1494,42 @@ a[aria-current="page"] {
 }
 
 .lang-list li {
+    position: relative;
     padding: 10px 14px;
     border-radius: 10px;
     transition:
         transform var(--transition),
 }
 
-.lang-list li:hover {
+.lang-list li:hover::before{
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        right: 93%;
+
+        border-radius: 10px;
+
+        background: linear-gradient(
+            90deg,
+            var(--gradient1),
+            var(--gradient2),
+            var(--gradient1)
+        );
+
+        opacity: 0.6;
+
+        background-size: 300% 300%;
+
+        animation: Glow 7s infinite linear;
+
+        z-index: -2;
+}
+
+
+
+ .lang-list li:hover {
     transform: scale(1.04);
     background-color: var(--hover-bg);
     animation: hover 1s ease infinite;
