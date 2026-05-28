@@ -1122,9 +1122,14 @@ a[aria-current="page"] {
 }
 
 .player-song-info {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: 25%;
+}
+
+.player-song-info::before{
+    display: none;
 }
 
 .song-info{
@@ -1258,6 +1263,8 @@ a[aria-current="page"] {
     }
 
     .player-song-info{
+        margin-left: 30px;
+        padding-left: 15px;
         min-width: 100%;
     }
 
@@ -1270,6 +1277,35 @@ a[aria-current="page"] {
         padding: 0;
         margin: 0;
         order: 1;
+    }
+
+    .player-song-info::before{
+        display: block;
+        content: "";
+
+        position: absolute;
+        inset: -1px;
+
+        right: 99%;
+
+        border-radius: 20px;
+
+        background: linear-gradient(
+            90deg,
+            var(--gradient1),
+            var(--gradient2),
+            var(--gradient3),
+            var(--gradient4),
+            var(--gradient5)
+        );
+        
+        opacity: 1;
+
+        background-size: 300% 300%;
+
+        animation: Glow 15s linear infinite;
+
+        z-index: -2;
     }
 }
 
