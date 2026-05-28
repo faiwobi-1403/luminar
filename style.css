@@ -1232,7 +1232,7 @@ a[aria-current="page"] {
 @media (max-width: 500px) {
     .song-player {
         flex-direction: column;
-        top: 72%;
+        top: 73%;
         left: 50%;
         transform: translateX(-50%);
         width: 94%;
