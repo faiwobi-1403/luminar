@@ -1232,7 +1232,7 @@ a[aria-current="page"] {
 @media (max-width: 500px) {
     .song-player {
         flex-direction: column;
-        top: 74%;
+        top: 72%;
         left: 50%;
         transform: translateX(-50%);
         width: 94%;
@@ -1267,6 +1267,8 @@ a[aria-current="page"] {
     }
 
     .song-player-span{
+        padding: 0;
+        margin: 0;
         order: 1;
     }
 }
