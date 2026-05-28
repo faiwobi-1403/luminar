@@ -553,6 +553,27 @@
 
     });
 
+    const shuffleBtn =
+    document.getElementById("suffleBtn");
+
+    // SHUFFLE SONG
+
+    shuffleBtn.addEventListener("click", () => {
+
+        // GET RANDOM SONG
+
+        const randomIndex =
+            Math.floor(Math.random() * songs.length);
+
+        const randomSong =
+            songs[randomIndex];
+
+        // PLAY RANDOM SONG
+
+        playSong(randomSong);
+
+    });
+
     // UPDATE PROGRESS
 
     audio.addEventListener("timeupdate", () => {
