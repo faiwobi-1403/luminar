@@ -982,11 +982,15 @@ a[aria-current="page"] {
     content: "";
     position: absolute;
     inset: -100%;
-    background: conic-gradient(
+    background: linear-gradient(
         transparent,
         transparent,
         transparent,
-        rgba(193, 193, 193, 0.7),
+        var(--gradient1),
+        var(--gradient2),
+        var(--gradient3),
+        var(--gradient4),
+        var(--gradient5),
         transparent
     );
     animation: rotateBorder 4s linear infinite;
@@ -997,7 +1001,7 @@ a[aria-current="page"] {
 
 .latest-releases-home li:hover::before,
 .latest-releases li:hover::before {
-    opacity: 1;
+    opacity: 0.4;
 }
 
 .latest-releases-home li::after,
@@ -1214,8 +1218,8 @@ a[aria-current="page"] {
     }
 
     .song-popup-box-small {
-        min-width: 75%;
         top: 40%;
+        min-width: 75%;
     }
 
     .song-player-layout{
@@ -1304,6 +1308,10 @@ a[aria-current="page"] {
         z-index: -1;
     }
 
+    .latest-releases-home li:hover::before,
+    .latest-releases li:hover::before {
+    opacity: 1;
+    }
 }
 
 /* ── Footer ── */
