@@ -1132,6 +1132,21 @@ a[aria-current="page"] {
     display: none;
 }
 
+.player-song-info p {
+    animation: appear 0.3s linear;
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .song-info{
     padding: 0;
     margin: 5px 0 0 0;
@@ -1195,7 +1210,10 @@ a[aria-current="page"] {
 
 #songmenuBtn:hover,
 #suffleBtn:hover{
-    transform: scale(1.05);
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 
+        transform var(--transition);
 }
 
 #progress {
@@ -1236,12 +1254,12 @@ a[aria-current="page"] {
 
 @media (max-width: 500px) {
     .song-player {
+        border-radius: 15px;
         flex-direction: column;
         top: 72%;
         left: 50%;
         transform: translateX(-50%);
-        width: 94%;
-        border-radius: 0;
+        width: 93%;
         padding: 25px 15px 50px 15px;
     }
 
@@ -1263,7 +1281,7 @@ a[aria-current="page"] {
     }
 
     .player-song-info{
-        margin-left: 30px;
+        margin-left: 27px;
         padding-left: 15px;
         min-width: 100%;
     }
@@ -1286,7 +1304,7 @@ a[aria-current="page"] {
         position: absolute;
         inset: -1px;
 
-        right: 99%;
+        right: 98.7%;
 
         border-radius: 20px;
 
@@ -1299,7 +1317,7 @@ a[aria-current="page"] {
             var(--gradient5)
         );
         
-        opacity: 1;
+        opacity: 0.6;
 
         background-size: 300% 300%;
 
