@@ -21,7 +21,7 @@ html {
     --popup-border: rgba(255, 255, 255, 0.15);
     --hover-bg: rgba(214, 184, 255, 0.2);
     --radius-large: 24px;
-    --blur-normal: blur(10px);
+    --blur-normal: blur(7px);
     --transition: 0.15s ease;
     --gradient1: #6a8cff;
     --gradient2: #e16aff;
@@ -169,7 +169,7 @@ div {
 .navbar.scrolled {
     background-color: var(--surface-soft);
     z-index: 2000;
-    opacity: 0.95;
+    opacity: 0.92;
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     border-radius: var(--radius-large);
@@ -271,7 +271,7 @@ a[aria-current="page"] {
     width: 100%;
     height: 50vh;
     object-fit: cover;
-    filter: blur(10px);
+    filter: var(--blur-normal);
 }
 
 .background-image div {
@@ -1127,6 +1127,18 @@ a[aria-current="page"] {
     max-width: 25%;
 }
 
+.song-info{
+    padding: 0;
+    margin: 5px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.5;
+    font-size: 60%;
+}
+
 #songTitle {
     padding: 0;
     margin: 0;
@@ -1150,8 +1162,8 @@ a[aria-current="page"] {
 .resume-btn,
 .pause-btn {
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     padding: 10px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
@@ -1220,7 +1232,7 @@ a[aria-current="page"] {
 @media (max-width: 500px) {
     .song-player {
         flex-direction: column;
-        top: 76%;
+        top: 74%;
         left: 50%;
         transform: translateX(-50%);
         width: 94%;
@@ -1246,8 +1258,6 @@ a[aria-current="page"] {
     }
 
     .player-song-info{
-        justify-content: center;
-        align-items: center;
         min-width: 100%;
     }
 
