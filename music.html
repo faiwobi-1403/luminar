@@ -317,6 +317,22 @@
         </ul>
     </div>
 </div>
+<div class="song-info-extended" id="song-info-extended">
+    <div class="song-info-extended-box">
+        <div class="player-song-info">
+            <p id="songTitleinbox">irreparable</p>
+            <p class="song-info">2026</p>
+        </div>
+        <ul>
+            <li><p>Genre:</p>N/A</li>
+            <li><p>Artist:</p>Luminar</li>
+            <li><p>Release date:</p>2026</li>
+            <li><p>Duration:</p><span id="total-time-info">0:00</span></li>
+            <li><p>Other Info:</p>N/A</li>
+        </ul>
+        <img src="images/luminar-logo.png" alt="">
+    </div>
+</div>
 <div class="song-player">
     <img src="images/song-cover.png"
          class="player-cover"
@@ -341,7 +357,7 @@
             id="pauseBtn"
             alt="">
             
-            <img src="images/shuffle.png" id="suffleBtn" alt="">
+            <img src="images/shuffle.png" id="shuffleBtn" alt="">
         </div>
 
         <div class="song-player-span">
@@ -371,6 +387,10 @@
         }
 
     });
+
+    const songinfobox = document.getElementById("song-info-extended");
+
+    const menuBth = document.getElementById("songmenuBtn");
 
     const searchInput = document.querySelector(".search input");
 
@@ -410,8 +430,73 @@
     const playerTitle =
         document.getElementById("songTitle");
 
+    const playerTitleinbox =
+        document.getElementById("songTitleinbox");
+
+
     const playerCover =
         document.getElementById("playerCover");
+
+    let popupWasOpen = false;
+
+    menuBth.addEventListener("click", () => {
+
+        if (songinfobox.style.display === "none") {
+
+            popupWasOpen = popup.style.display === "flex";
+
+            popup.style.display = "none";
+
+            songinfobox.style.display = "block";
+
+        } else {
+
+            songinfobox.style.display = "none";
+
+            if (popupWasOpen) {
+                popup.style.display = "flex";
+            }
+
+        }
+
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key.toLowerCase() === "m") {
+            menuBth.click();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.repeat) return;
+        if (e.key.toLowerCase() === "r") {
+            shuffleBtn.click();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        const isTyping =
+            document.activeElement === searchInput ||
+            document.activeElement.tagName.toLowerCase() === "input" ||
+            document.activeElement.tagName.toLowerCase() === "textarea";
+
+        // allow normal typing in search bar (space included)
+        if (isTyping) return;
+
+        if (e.code === "Space") {
+            e.preventDefault();
+
+            if (audio.paused) {
+                audio.play();
+                playBtn.style.display = "none";
+                pauseBtn.style.display = "block";
+            } else {
+                audio.pause();
+                pauseBtn.style.display = "none";
+                playBtn.style.display = "block";
+            }
+        }
+    });
 
     // START STATE
 
@@ -455,6 +540,9 @@
         // UPDATE PLAYER
 
         playerTitle.textContent =
+            songName;
+
+        playerTitleinbox.textContent =
             songName;
 
         playerCover.src =
@@ -562,7 +650,7 @@
     });
 
     const shuffleBtn =
-    document.getElementById("suffleBtn");
+    document.getElementById("shuffleBtn");
 
     // SHUFFLE SONG
 
@@ -605,6 +693,10 @@
             .padStart(2, "0");
 
         document.getElementById("total-time")
+        .textContent =
+            `${totalMinutes}:${totalSeconds}`;
+
+        document.getElementById("total-time-info")
         .textContent =
             `${totalMinutes}:${totalSeconds}`;
 
