@@ -1616,6 +1616,7 @@ kbd {
 
     .shortcut-content{
         transform: translateY(-60px);
+        max-width: 90%;
     }
 
     .shortcut-btn img{
