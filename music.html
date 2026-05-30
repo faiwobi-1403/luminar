@@ -237,14 +237,14 @@
 
 <div id="shortcutModal" class="shortcut-modal">
     <div class="shortcut-content">
-        <h2>Keyboard Shortcuts</h2>
+        <h2 data-lang="shortCuts">Keyboard Shortcuts</h2>
 
-        <p><kbd>Space</kbd>Play / Pause</p>
-        <p><kbd>R</kbd>Shuffle</p>
-        <p><kbd>M</kbd>Song info</p>
-        <p><kbd>/</kbd>Focus Search</p>
+        <p><kbd>Space</kbd> <span data-lang="playPause">Play / Pause</span></p>
+        <p><kbd>R</kbd> <span data-lang="shuffle">Shuffle</span></p>
+        <p><kbd>M</kbd> <span data-lang="songInfo">Song info</span></p>
+        <p><kbd>/</kbd> <span data-lang="focusSearch">Focus Search</span></p>
 
-        <button id="closeShortcut">Close</button>
+        <button id="closeShortcut" data-lang="close">Close</button>
     </div>
 </div>
 
@@ -339,11 +339,11 @@
             <p class="song-info">2026</p>
         </div>
         <ul>
-            <li><p>Genre:</p>N/A</li>
-            <li><p>Artist:</p>Luminar</li>
-            <li><p>Release date:</p>2026</li>
-            <li><p>Duration:</p><span id="total-time-info">0:00</span></li>
-            <li><p>Other Info:</p>N/A</li>
+            <li><p data-lang="Genre">Genre:</p>N/A</li>
+            <li><p data-lang="Artist">Artist:</p>Luminar</li>
+            <li><p data-lang="Release">Release date:</p>2026</li>
+            <li><p data-lang="Duration">Duration:</p><span id="total-time-info">0:00</span></li>
+            <li><p data-lang="OtherInfo">Other Info:</p>N/A</li>
         </ul>
         <img src="images/luminar-logo.png" alt="">
     </div>
@@ -908,6 +908,18 @@
         socialmediaAmazonMusic: "Listen to the song on Amazon Music!",
         socialmediaDeezer: "Listen to the song on Deezer!",
         searchResults: "Search results",
+        Genre: "Genre:",
+        Artist: "Artist:",
+        Release: "released date:",
+        Duration: "Duration:",
+        OtherInfo: "Other Info:",
+
+        shortCuts: "Keyboard Shortcuts",
+        playPause: "Play / Pause",
+        shuffle: "Shuffle",
+        songInfo: "Song info",
+        focusSearch: "Focus Search",
+        close: "Close"
     },
 
     de: {
@@ -936,6 +948,18 @@
         socialmediaAmazonMusic: "Höre den Song auf Amazon Music!",
         socialmediaDeezer: "Höre den Song auf Deezer!",
         searchResults: "Suchergebnisse",
+        Genre: "Genre:",
+        Artist: "Künstler:",
+        Release: "Veröffentlichungsdatum:",
+        Duration: "Dauer:",
+        OtherInfo: "Weitere Informationen:",
+
+        shortCuts: "Tastenkombinationen",
+        playPause: "Wiedergabe / Pause",
+        shuffle: "Zufällige Wiedergabe",
+        songInfo: "Songinformationen",
+        focusSearch: "Suche fokussieren",
+        close: "Schließen"
     },
 
     fr: {
@@ -964,6 +988,19 @@
         socialmediaAmazonMusic: "Écoute la chanson sur Amazon Music !",
         socialmediaDeezer: "Écoute la chanson sur Deezer !",
         searchResults: "Résultats de recherche",
+
+        Genre: "Genre :",
+        Artist: "Artiste :",
+        Release: "Date de sortie :",
+        Duration: "Durée :",
+        OtherInfo: "Autres informations :",
+
+        shortCuts: "Raccourcis clavier",
+        playPause: "Lecture / Pause",
+        shuffle: "Lecture aléatoire",
+        songInfo: "Informations sur la chanson",
+        focusSearch: "Activer la recherche",
+        close: "Fermer"
     },
 
     es: {
@@ -992,6 +1029,20 @@
         socialmediaAmazonMusic: "¡Escucha la canción en Amazon Music!",
         socialmediaDeezer: "¡Escucha la canción en Deezer!",
         searchResults: "Resultados de búsqueda",
+
+        Genre: "Género:",
+        Artist: "Artista:",
+        Release: "Fecha de lanzamiento:",
+        Duration: "Duración:",
+        OtherInfo: "Información adicional:",
+        
+        shortCuts: "Atajos de teclado",
+        playPause: "Reproducir / Pausar",
+        shuffle: "Aleatorio",
+        songInfo: "Información de la canción",
+        focusSearch: "Enfocar búsqueda",
+        close: "Cerrar"
+        
     },
 
     pt: {
@@ -1020,6 +1071,19 @@
         socialmediaAmazonMusic: "Ouça a música no Amazon Music!",
         socialmediaDeezer: "Ouça a música no Deezer!",
         searchResults: "Resultados da pesquisa",
+
+        Genre: "Gênero:",
+        Artist: "Artista:",
+        Release: "Data de lançamento:",
+        Duration: "Duração:",
+        OtherInfo: "Outras informações:",
+
+        shortCuts: "Atalhos de teclado",
+        playPause: "Reproduzir / Pausar",
+        shuffle: "Aleatório",
+        songInfo: "Informações da música",
+        focusSearch: "Focar pesquisa",
+        close: "Fechar"
     },
 
     pl: {
@@ -1048,6 +1112,19 @@
         socialmediaAmazonMusic: "Posłuchaj utworu w Amazon Music!",
         socialmediaDeezer: "Posłuchaj utworu na Deezer!",
         searchResults: "Wyniki wyszukiwania",
+
+        Genre: "Gatunek:",
+        Artist: "Artysta:",
+        Release: "Data wydania:",
+        Duration: "Czas trwania:",
+        OtherInfo: "Dodatkowe informacje:",
+
+        shortCuts: "Skróty klawiaturowe",
+        playPause: "Odtwarzanie / Pauza",
+        shuffle: "Losowe odtwarzanie",
+        songInfo: "Informacje o utworze",
+        focusSearch: "Skup wyszukiwanie",
+        close: "Zamknij"
     },
 
     jp: {
@@ -1076,6 +1153,19 @@
         socialmediaAmazonMusic: "Amazon Musicで聴く",
         socialmediaDeezer: "Deezerで聴く",
         searchResults: "検索結果",
+
+        Genre: "ジャンル:",
+        Artist: "アーティスト:",
+        Release: "リリース日:",
+        Duration: "再生時間:",
+        OtherInfo: "その他の情報:",
+
+        shortCuts: "キーボードショートカット",
+        playPause: "再生 / 一時停止",
+        shuffle: "シャッフル",
+        songInfo: "曲情報",
+        focusSearch: "検索欄にフォーカス",
+        close: "閉じる"
     },
 
     zh: {
@@ -1104,6 +1194,19 @@
         socialmediaAmazonMusic: "在Amazon Music上收听",
         socialmediaDeezer: "在Deezer上收听",
         searchResults: "搜索结果",
+
+        Genre: "类型：",
+        Artist: "艺术家：",
+        Release: "发行日期：",
+        Duration: "时长：",
+        OtherInfo: "其他信息：",
+
+        shortCuts: "键盘快捷键",
+        playPause: "播放 / 暂停",
+        shuffle: "随机播放",
+        songInfo: "歌曲信息",
+        focusSearch: "聚焦搜索栏",
+        close: "关闭"
     },
 
     kr: {
@@ -1132,6 +1235,19 @@
         socialmediaAmazonMusic: "Amazon Music에서 노래 듣기!",
         socialmediaDeezer: "Deezer에서 노래 듣기!",
         searchResults: "검색 결과",
+
+        Genre: "장르:",
+        Artist: "아티스트:",
+        Release: "발매일:",
+        Duration: "재생 시간:",
+        OtherInfo: "기타 정보:",
+        
+        shortCuts: "키보드 단축키",
+        playPause: "재생 / 일시정지",
+        shuffle: "셔플",
+        songInfo: "곡 정보",
+        focusSearch: "검색창으로 이동",
+        close: "닫기"
     }};
 
     // SET LANGUAGE
