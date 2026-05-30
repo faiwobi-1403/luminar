@@ -435,12 +435,14 @@ a[aria-current="page"] {
     inset: 0;
     backdrop-filter: var(--blur-normal);
     background-color: var(--overlay);
-    z-index: 1100;
+    z-index: 1400;
 }
 
 .song-popup-box {
     display: flex;
-    position: fixed;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
     justify-content: space-between;
     width: 50%;
     max-height: 56%;
@@ -448,13 +450,42 @@ a[aria-current="page"] {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 35px;
-    background: var(--popup-bg);
-    border: 1px solid var(--popup-border);
+    background-color: var(--popup-bg);
+    border: 0px solid var(--popup-border);
     backdrop-filter: var(--blur-normal);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     border-radius: var(--radius-large);
     box-sizing: border-box;
+    overflow: hidden;
 }
+
+/*.song-popup-box::before{
+    content: "";
+    position: absolute;
+    inset: -100%;
+    padding: 10px;
+    background-image: conic-gradient(
+        var(--gradient1),
+        var(--gradient2),
+        var(--gradient3),
+        var(--gradient4),
+        var(--gradient5),
+        var(--gradient1)
+    );
+    border-radius: inherit;
+    filter: blur(1px);
+    z-index: -2;
+    animation: rotateBorder 4s linear infinite;
+}
+
+.song-popup-box::after{
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background-color: var(--popup-bg);
+    border-radius: 22px;
+    z-index: -1;
+} */
 
 .song-popup-box-small {
     display: none;
