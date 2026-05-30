@@ -1438,7 +1438,10 @@ a[aria-current="page"] {
     .song-info-extended-box .player-song-info{
         margin: 20px 0 0 0;
     }
-        
+
+    .song-info-extended-box img{
+        display: none;
+    }
 }
 
 @media (max-width: 900px) {
