@@ -44,6 +44,8 @@
             data-artist="Luminar"
             data-release="2026"
             data-duration="4:23"
+            data-tempo="113"
+            data-signature="4:4"
             data-otherinfo="Single">
                 <img src="images/song covers/looking thru windows.png"
                     class="song-cover"
@@ -353,6 +355,8 @@
             <li><p data-lang="Artist">Artist:</p><span id="songArtist">Luminar</span></li>
             <li><p data-lang="Release">Release date:</p><span id="songRelease">2026</span></li>
             <li><p data-lang="Duration">Duration:</p><span id="total-time-info">0:00</span></li>
+            <li><p data-lang="Tempo">Tempo:</p><span id="songTempo">162</span>bpm</li>
+            <li><p data-lang="Signature">Time Signature:</p><span id="songSignature">4:4</span></li>
             <li><p data-lang="OtherInfo">Other Info:</p><span id="songOtherInfo">Single</span></li>
         </ul>
         <img src="images/luminar-logo.png" alt="">
@@ -620,6 +624,12 @@
 
         document.getElementById("songOtherInfo").textContent =
             song.dataset.otherinfo || "N/A";
+
+        document.getElementById("songTempo").textContent =
+            song.dataset.tempo || "N/A";
+
+        document.getElementById("songSignature").textContent =
+            song.dataset.signature || "N/A";
 
         // PLAY AUDIO
 
@@ -936,6 +946,8 @@
         Artist: "Artist:",
         Release: "Released date:",
         Duration: "Duration:",
+        Tempo: "Tempo:",
+        Signature: "Signature:",
         OtherInfo: "Other Info:",
 
         shortCuts: "Keyboard Shortcuts",
@@ -976,6 +988,8 @@
         Artist: "Künstler:",
         Release: "Veröffentlichungsdatum:",
         Duration: "Dauer:",
+        Tempo: "Tempo:",
+        Signature: "Taktart:",
         OtherInfo: "Weitere Informationen:",
 
         shortCuts: "Tastenkombinationen",
@@ -1017,6 +1031,8 @@
         Artist: "Artiste :",
         Release: "Date de sortie :",
         Duration: "Durée :",
+        Tempo: "Tempo :",
+        Signature: "Mesure :",
         OtherInfo: "Autres informations :",
 
         shortCuts: "Raccourcis clavier",
@@ -1058,6 +1074,8 @@
         Artist: "Artista:",
         Release: "Fecha de lanzamiento:",
         Duration: "Duración:",
+        Tempo: "Tempo:",
+        Signature: "Compás:",
         OtherInfo: "Información adicional:",
         
         shortCuts: "Atajos de teclado",
@@ -1100,6 +1118,8 @@
         Artist: "Artista:",
         Release: "Data de lançamento:",
         Duration: "Duração:",
+        Tempo: "Tempo:",
+        Signature: "Compasso:",
         OtherInfo: "Outras informações:",
 
         shortCuts: "Atalhos de teclado",
@@ -1141,6 +1161,8 @@
         Artist: "Artysta:",
         Release: "Data wydania:",
         Duration: "Czas trwania:",
+        Tempo: "Tempo:",
+        Signature: "Metrum:",
         OtherInfo: "Dodatkowe informacje:",
 
         shortCuts: "Skróty klawiaturowe",
@@ -1182,6 +1204,8 @@
         Artist: "アーティスト:",
         Release: "リリース日:",
         Duration: "再生時間:",
+        Tempo: "テンポ:",
+        Signature: "拍子（ひょうし）:",
         OtherInfo: "その他の情報:",
 
         shortCuts: "キーボードショートカット",
@@ -1223,6 +1247,8 @@
         Artist: "艺术家：",
         Release: "发行日期：",
         Duration: "时长：",
+        Tempo: "节奏: ",
+        Signature: "拍号: ",
         OtherInfo: "其他信息：",
 
         shortCuts: "键盘快捷键",
@@ -1264,6 +1290,8 @@
         Artist: "아티스트:",
         Release: "발매일:",
         Duration: "재생 시간:",
+        Tempo: "템포:",
+        Signature: "박자:",
         OtherInfo: "기타 정보:",
         
         shortCuts: "키보드 단축키",
