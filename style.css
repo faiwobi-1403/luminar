@@ -1518,7 +1518,7 @@ a[aria-current="page"] {
     }
 }
 
-.shortcut-btn {
+.shortcut-btn{
     appearance: none;
     outline: none;
     border: none;
@@ -1552,7 +1552,7 @@ a[aria-current="page"] {
     object-fit: cover;
 }
 
-.shortcut-modal {
+.shortcut-modal{
     display: none;
     border-radius: var(--border);
     position: fixed;
@@ -1616,14 +1616,18 @@ kbd {
 
     .shortcut-content{
         transform: translateY(-60px);
-        max-width: 90%;
         font-size: 85%;
+        max-width: 60%;
     }
 
     .shortcut-btn img{
         height: 30px;
         width: auto;
         object-fit: cover;
+    }
+
+    .shortcut-btn{
+        backdrop-filter: blur(2px);
     }
 }
     
