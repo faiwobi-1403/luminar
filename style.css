@@ -1442,6 +1442,7 @@ a[aria-current="page"] {
     .song-info-extended-box img{
         display: none;
     }
+    
 }
 
 @media (max-width: 900px) {
@@ -1517,6 +1518,113 @@ a[aria-current="page"] {
     }
 }
 
+.shortcut-btn {
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: var(--radius-large);
+    background: var(--hover-bg);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: var(--blur-normal);
+    box-shadow:
+        0 0 20px rgba(189, 173, 253, 0.15),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.shortcut-btn:hover{
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35);
+}
+
+.shortcut-btn img {
+    width: 40px;
+    height: auto;
+    object-fit: cover;
+}
+
+.shortcut-modal {
+    display: none;
+    border-radius: var(--border);
+    position: fixed;
+    inset: 0;
+    backdrop-filter: var(--blur-normal);
+    background: var(--overlay);
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+}
+
+.shortcut-modal p{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.shortcut-content h2{
+    padding: 0;
+    margin: 0;
+}
+
+.shortcut-content{
+    background: var(--popup-bg);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-large);
+}
+
+kbd {
+    background: var(--hover-bg);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+#closeShortcut{
+    appearance: none;
+    outline: none;
+    border: 1px solid var(--border);
+    font-size: 100%;
+    padding: 5px;
+    border-radius: 6px;
+    background: var(--hover-bg);
+    color: var(--text);
+}
+
+#closeShortcut:hover{
+    opacity: 0.5;
+}
+
+@media (max-width: 750px){
+    .shortcut-btn{
+        position: fixed;
+        bottom: 85%;
+        right: 5%;
+        z-index: 1500;
+    }   
+}
+
+@media (max-width: 500px){
+
+    .shortcut-content{
+        transform: translateY(-60px);
+    }
+
+    .shortcut-btn img{
+        height: 30px;
+        width: auto;
+        object-fit: cover;
+    }
+}
+    
 /* ── Footer ── */
 
 .footer {
