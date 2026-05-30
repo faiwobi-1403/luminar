@@ -1156,7 +1156,7 @@ a[aria-current="page"] {
 .song-info-extended-box ul li{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     margin: 10px 0;
     padding: 0;
     white-space: nowrap;
@@ -1459,7 +1459,7 @@ a[aria-current="page"] {
 
     .song-info-extended-box{
         min-width: 60%;
-        top: 40%;
+        top: 37%;
     }
 
     .song-info-extended-box .player-song-info{
