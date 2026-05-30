@@ -233,6 +233,21 @@
         </ul>
     </div> 
 </div>
+<button id="shortcutBtn" class="shortcut-btn"><img src="images/burger-menu.png" alt=""></button>
+
+<div id="shortcutModal" class="shortcut-modal">
+    <div class="shortcut-content">
+        <h2>Keyboard Shortcuts</h2>
+
+        <p><kbd>Space</kbd>Play / Pause</p>
+        <p><kbd>R</kbd>Shuffle</p>
+        <p><kbd>M</kbd>Song info</p>
+        <p><kbd>/</kbd>Focus Search</p>
+
+        <button id="closeShortcut">Close</button>
+    </div>
+</div>
+
 <div class="footer">
     <img src="images/luminar-logo.png" class="logo-footer" alt="logo">
     <ul class="social-media">
@@ -388,6 +403,21 @@
 
     });
 
+    const shortcutBtn = document.getElementById("shortcutBtn")
+
+    const shortcutList = document.getElementById("shortcutModal")
+
+    const shortcutClose = document.getElementById("closeShortcut")
+
+    shortcutBtn.addEventListener("click", () => {
+        shortcutList.style.display = "flex"
+
+    });
+
+    shortcutClose.addEventListener("click", () =>{
+        shortcutList.style.display = "none"
+    });
+
     const songinfobox = document.getElementById("song-info-extended");
 
     const menuBth = document.getElementById("songmenuBtn");
@@ -436,6 +466,21 @@
 
     const playerCover =
         document.getElementById("playerCover");
+
+    document.addEventListener("keydown", (e) => {
+
+        const isTyping =
+            document.activeElement.tagName.toLowerCase() === "input" ||
+            document.activeElement.tagName.toLowerCase() === "textarea";
+
+        if (isTyping) return;
+
+        if (e.key === "/") {
+            e.preventDefault();
+            searchInput.focus();
+        }
+
+    });
 
     let popupWasOpen = false;
 
