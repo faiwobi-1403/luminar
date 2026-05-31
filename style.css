@@ -1097,7 +1097,7 @@ a[aria-current="page"] {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 40%;
+    width: 45%;
     min-height: 40%;
     transform: translate(-50%, -50%);
     padding: 30px;
@@ -1457,17 +1457,16 @@ a[aria-current="page"] {
         z-index: -2;
     }
 
-    .song-info-extended-box{
-        min-width: 60%;
-        top: 37%;
-    }
-
     .song-info-extended-box .player-song-info{
         margin: 20px 0 0 0;
     }
 
     .song-info-extended-box img{
         display: none;
+    }
+
+    .song-info-extended-box{
+        top: 37%;
     }
     
 }
@@ -1630,7 +1629,7 @@ kbd {
     opacity: 0.5;
 }
 
-@media (max-width: 750px){
+@media (max-width: 800px){
     .shortcut-btn{
         position: fixed;
         bottom: 85%;
@@ -1639,12 +1638,16 @@ kbd {
     }   
 }
 
-@media (max-width: 500px){
+@media (max-width: 600px){
 
     .shortcut-content{
         transform: translateY(-60px);
         font-size: 85%;
         max-width: 60%;
+    }
+
+    .song-info-extended-box{
+        min-width: 62%;
     }
 
     .shortcut-btn img{
