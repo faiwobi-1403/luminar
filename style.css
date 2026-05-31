@@ -1217,7 +1217,7 @@ a[aria-current="page"] {
     justify-content: space-between;
     justify-content: center;
     align-items: center;
-    gap: 13px;
+    gap: 5px;
     width: 100%;
 }
 
@@ -1404,7 +1404,7 @@ a[aria-current="page"] {
         left: 50%;
         transform: translateX(-50%);
         width: 93%;
-        padding: 25px 15px 60px 15px;
+        padding: 35px 15px 60px 15px;
     }
 
     .song-popup-box-small {
