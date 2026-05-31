@@ -1404,7 +1404,7 @@ a[aria-current="page"] {
         left: 50%;
         transform: translateX(-50%);
         width: 93%;
-        padding: 35px 15px 60px 15px;
+        padding: 30px 15px 60px 15px;
     }
 
     .song-popup-box-small {
