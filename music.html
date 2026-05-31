@@ -360,35 +360,38 @@
             <li><p data-lang="Duration">Duration:</p><span id="total-time-info">0:00</span></li>
             <li><p data-lang="Tempo">Tempo:</p><span id="songTempo">162</span>bpm</li>
             <li><p data-lang="Signature">Time Signature:</p><span id="songSignature">4:4</span></li>
-            <li><p data-lang="Key">Key:</p><span id="songKey">E♭ major</span></li>
+            <li><p data-lang="Key">Key:</p><span id="songKey">E♭ Major</span></li>
         </ul>
         <img src="images/luminar-logo.png" alt="">
     </div>
 </div>
 <div class="song-player">
-    <img src="images/song-cover.png"
+
+    <div class="song-player-left">
+        <img src="images/song-cover.png"
          class="player-cover"
          id="playerCover"
          alt="">
-    <div class="player-song-info">
-        <p id="songTitle">irreparable</p>
-        <p class="song-info">2026</p>
+        <div class="player-song-info">
+            <p id="songTitle">irreparable</p>
+            <p class="song-info">2026</p>
+        </div>
     </div>
-        <div class="song-player-layout">
 
+    <div class="song-player-layout">
         <div class="player-controls">
             <img src="images/burger-menu.png" id="songmenuBtn" alt="">
 
             <img src="images/resume.png"
-            class="resume-btn"
-            id="playBtn"
-            alt="">
+                class="resume-btn"
+                id="playBtn"
+                alt="">
 
             <img src="images/pause.png"
-            class="pause-btn"
-            id="pauseBtn"
-            alt="">
-            
+                class="pause-btn"
+                id="pauseBtn"
+                alt="">
+                
             <img src="images/shuffle.png" id="shuffleBtn" alt="">
         </div>
 
@@ -399,11 +402,13 @@
         </div>
     </div>
 
+    <div class="volume">
+        <input type="range" name="volume" id="volumeSpan" min="0" max="100" value="100">
+    </div>
+
     <audio id="audio">
         <source src="audio/irreparable instrumental.mp3" type="audio/mpeg">
-        <source src="audio/looking thru windows.mp3">
-    </audio>
-    
+    </audio>    
 </div>
 <script>
     const navbar = document.querySelector(".navbar");
@@ -787,6 +792,8 @@
         progress.value =
             (current / duration) * 100;
 
+        updateProgressSlider();
+
         const minutes =
             Math.floor(current / 60);
 
@@ -804,13 +811,15 @@
 
     progress.addEventListener("input", () => {
 
-        if (!audio.duration) return;
+    if (!audio.duration) return;
 
-        audio.currentTime =
-            (progress.value / 100)
-            * audio.duration;
+    audio.currentTime =
+        (progress.value / 100)
+        * audio.duration;
 
-    });
+    updateProgressSlider();
+
+    }); 
 
     // SONG END
 
@@ -914,6 +923,54 @@
         });
 
     });
+
+    const volumeSpan = document.getElementById("volumeSpan");
+
+    audio.volume = 1; // 100%
+
+    volumeSpan.addEventListener("input", () => {
+        audio.volume = volumeSpan.value / 100;
+    });
+
+    function updateSlider() {
+    const percent =
+        ((volumeSpan.value - volumeSpan.min) /
+        (volumeSpan.max - volumeSpan.min)) * 100;
+
+    volumeSpan.style.background = `
+        linear-gradient(
+            to right,
+            rgba(214, 184, 255, 0.6) ${percent}%,
+            rgba(255,255,255,0.15) ${percent}%
+        )
+    `;}
+
+    volumeSpan.addEventListener("input", updateSlider);
+
+    volumeSpan.min = 0;
+    volumeSpan.max = 100;
+    volumeSpan.value = 100;
+
+    updateSlider();
+
+    function updateProgressSlider() {
+    const percent =
+        ((progress.value - progress.min) /
+        (progress.max - progress.min)) * 100;
+
+    progress.style.background = `
+        linear-gradient(
+            to right,
+            rgba(214, 184, 255, 0.6) ${percent}%,
+            rgba(255,255,255,0.15) ${percent}%
+        )
+    `;}
+    
+    progress.min = 0;
+    progress.max = 100;
+    progress.value = 0;
+
+    updateProgressSlider();
 
     // TRANSLATIONS
 
