@@ -46,7 +46,7 @@
             data-duration="4:23"
             data-tempo="113"
             data-signature="4:4"
-            data-otherinfo="Single">
+            data-key="C minor">
                 <img src="images/song covers/looking thru windows.png"
                     class="song-cover"
                     alt="looking thru windows cover">
@@ -357,7 +357,7 @@
             <li><p data-lang="Duration">Duration:</p><span id="total-time-info">0:00</span></li>
             <li><p data-lang="Tempo">Tempo:</p><span id="songTempo">162</span>bpm</li>
             <li><p data-lang="Signature">Time Signature:</p><span id="songSignature">4:4</span></li>
-            <li><p data-lang="OtherInfo">Other Info:</p><span id="songOtherInfo">Single</span></li>
+            <li><p data-lang="Key">Key:</p><span id="songKey">E♭ Major</span></li>
         </ul>
         <img src="images/luminar-logo.png" alt="">
     </div>
@@ -622,14 +622,14 @@
         document.getElementById("songRelease").textContent =
             song.dataset.release || "N/A";
 
-        document.getElementById("songOtherInfo").textContent =
-            song.dataset.otherinfo || "N/A";
-
         document.getElementById("songTempo").textContent =
             song.dataset.tempo || "N/A";
 
         document.getElementById("songSignature").textContent =
             song.dataset.signature || "N/A";
+
+        document.getElementById("songKey").textContent =
+            song.dataset.key || "N/A";
 
         // PLAY AUDIO
 
@@ -948,7 +948,7 @@
         Duration: "Duration:",
         Tempo: "Tempo:",
         Signature: "Signature:",
-        OtherInfo: "Other Info:",
+        Key: "Key:",
 
         shortCuts: "Keyboard Shortcuts",
         playPause: "Play / Pause",
@@ -990,7 +990,7 @@
         Duration: "Dauer:",
         Tempo: "Tempo:",
         Signature: "Taktart:",
-        OtherInfo: "Weitere Informationen:",
+        Key: "Tonart:",
 
         shortCuts: "Tastenkombinationen",
         playPause: "Wiedergabe / Pause",
@@ -1033,7 +1033,7 @@
         Duration: "Durée :",
         Tempo: "Tempo :",
         Signature: "Mesure :",
-        OtherInfo: "Autres informations :",
+        Key: "Tonalité :",
 
         shortCuts: "Raccourcis clavier",
         playPause: "Lecture / Pause",
@@ -1076,7 +1076,7 @@
         Duration: "Duración:",
         Tempo: "Tempo:",
         Signature: "Compás:",
-        OtherInfo: "Información adicional:",
+        Key: "Tonalidad:",
         
         shortCuts: "Atajos de teclado",
         playPause: "Reproducir / Pausar",
@@ -1120,7 +1120,7 @@
         Duration: "Duração:",
         Tempo: "Tempo:",
         Signature: "Compasso:",
-        OtherInfo: "Outras informações:",
+        Key: "Tonalidade:",
 
         shortCuts: "Atalhos de teclado",
         playPause: "Reproduzir / Pausar",
@@ -1163,7 +1163,7 @@
         Duration: "Czas trwania:",
         Tempo: "Tempo:",
         Signature: "Metrum:",
-        OtherInfo: "Dodatkowe informacje:",
+        Key: "Tonacja:",
 
         shortCuts: "Skróty klawiaturowe",
         playPause: "Odtwarzanie / Pauza",
@@ -1206,7 +1206,7 @@
         Duration: "再生時間:",
         Tempo: "テンポ:",
         Signature: "拍子（ひょうし）:",
-        OtherInfo: "その他の情報:",
+        Key: "調（ちょう）:",
 
         shortCuts: "キーボードショートカット",
         playPause: "再生 / 一時停止",
@@ -1249,7 +1249,7 @@
         Duration: "时长：",
         Tempo: "节奏: ",
         Signature: "拍号: ",
-        OtherInfo: "其他信息：",
+        Key: "调式：",
 
         shortCuts: "键盘快捷键",
         playPause: "播放 / 暂停",
@@ -1292,7 +1292,7 @@
         Duration: "재생 시간:",
         Tempo: "템포:",
         Signature: "박자:",
-        OtherInfo: "기타 정보:",
+        Key: "조성:",
         
         shortCuts: "키보드 단축키",
         playPause: "재생 / 일시정지",
