@@ -367,6 +367,11 @@
 </div>
 <div class="song-player">
 
+    <img src="images/song-cover.png"
+         class="player-cover2"
+         id="playerCover2"
+         alt="">
+
     <div class="song-player-left">
         <img src="images/song-cover.png"
          class="player-cover"
@@ -376,6 +381,7 @@
             <p id="songTitle">irreparable</p>
             <p class="song-info">2026</p>
         </div>
+        <img src="images/image-icon.png" id="imageIcon" alt="image-icon">
     </div>
 
     <div class="song-player-layout">
@@ -489,6 +495,19 @@
 
     const playerCover =
         document.getElementById("playerCover");
+
+    const playerCover2 =
+        document.getElementById("playerCover2");
+    
+    const imageIcon = document.getElementById("imageIcon")
+
+    imageIcon.addEventListener("click", () => {
+        if(playerCover2.style.display === "none"){
+            playerCover2.style.display = "block";
+        } else {
+            playerCover2.style.display = "none";
+        }
+    });
 
     document.addEventListener("keydown", (e) => {
 
@@ -614,6 +633,9 @@
             songName;
 
         playerCover.src =
+            songCover;
+
+        playerCover2.src =
             songCover;
 
         audio.src =
