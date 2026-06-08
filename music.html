@@ -24,6 +24,7 @@
         <h1 id="music-hero-title">Music</h1>
         <p data-lang="heroSubtitle">Find all my music here</p>
     </div>
+    <canvas id="visualizer"></canvas>
 </div>
 <div class="search">
     <div>
@@ -842,7 +843,7 @@
 
     const LyricsBtn = document.getElementById("LyricsBtn")
 
-    const Lyrics = document.getElementById("Lyrics");
+    const Lyrics = document.getElementById("Lyrics")
 
     LyricsBtn.addEventListener("click", () => {
         if(LyricsPopup.style.display === "none" && window.innerWidth > 500){
@@ -1134,6 +1135,7 @@
         
         // PLAY AUDIO
 
+        audioContext.resume();
         audio.play();
 
         playBtn.style.display = "none";
@@ -1250,7 +1252,9 @@
 
     // PLAY BUTTON
 
-    playBtn.addEventListener("click", () => {
+    playBtn.addEventListener("click", async () => {
+
+        await audioContext.resume();
 
         audio.play();
 
@@ -1378,6 +1382,69 @@
         playBtn.style.display = "block";
 
     });
+
+    // AUDIO VISUALIZER
+
+    const canvas = document.getElementById("visualizer");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = 1000;
+    canvas.height = 300;
+
+    const audioContext = new AudioContext();
+
+    const source = audioContext.createMediaElementSource(audio);
+
+    const analyser = audioContext.createAnalyser();
+
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+
+    analyser.fftSize = 256;
+
+    const bufferLength = analyser.frequencyBinCount;
+
+    const dataArray =
+    new Uint8Array(bufferLength);
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+        analyser.getByteFrequencyData(dataArray);
+        console.log(dataArray[0]);
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        const barWidth =
+        (canvas.width / bufferLength) * 2;
+
+        let x = 0;
+
+        for(let i = 0; i < bufferLength; i++) {
+
+            const barHeight = dataArray[i];
+
+            ctx.fillStyle =
+            "rgba(214,184,255,1)";
+
+            ctx.fillRect(
+                x,
+                canvas.height - barHeight,
+                barWidth,
+                barHeight
+            );
+
+            x += barWidth + 1;
+        }
+    }
+
+    animate();
 
     // SEARCH
 
