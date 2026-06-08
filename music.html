@@ -41,6 +41,7 @@
                 data-title="looking thru windows"
                 data-cover="images/song covers/looking thru windows.png"
                 data-audio="audio/looking thru windows.mp3"
+                data-video="videos/looking thru windows.mp4"
                 data-genre="Pop"
                 data-artist="Luminar"
                 data-release="2026"
@@ -535,7 +536,6 @@
         <button id="closeShortcut" data-lang="close">Close</button>
     </div>
 </div>
-
 <div class="footer">
     <img src="images/luminar-logo.png" class="logo-footer" alt="logo">
     <ul class="social-media">
@@ -625,15 +625,23 @@
             <p id="songTitleinbox">irreparable</p>
             <p class="song-info">2026</p>
         </div>
-        <ul>
-            <li><p data-lang="Genre">Genre:</p><span id="songGenre">Rock, Pop-Punk</span></li>
-            <li><p data-lang="Artist">Artist:</p><span id="songArtist">Luminar</span></li>
-            <li><p data-lang="Release">Release date:</p><span id="songRelease">2026</span></li>
-            <li><p data-lang="Duration">Duration:</p><span id="total-time-info">0:00</span></li>
-            <li><p data-lang="Tempo">Tempo:</p><span id="songTempo">162</span>bpm</li>
-            <li><p data-lang="Signature">Time Signature:</p><span id="songSignature">4:4</span></li>
-            <li><p data-lang="Key">Key:</p><span id="songKey">E♭ Major</span></li>
-        </ul>
+        <div>
+            <ul>
+                <li><p data-lang="Genre">Genre:</p><span id="songGenre">Rock, Pop-Punk</span></li>
+                <li><p data-lang="Artist">Artist:</p><span id="songArtist">Luminar</span></li>
+                <li><p data-lang="Release">Release date:</p><span id="songRelease">2026</span></li>
+                <li><p data-lang="Duration">Duration:</p><span id="total-time-info">0:00</span></li>
+                <li><p data-lang="Tempo">Tempo:</p><span id="songTempo">162</span>bpm</li>
+                <li><p data-lang="Signature">Time Signature:</p><span id="songSignature">4:4</span></li>
+                <li><p data-lang="Key">Key:</p><span id="songKey">E♭ Major</span></li>
+            </ul>
+            <video id="ShortVid"
+                autoplay
+                muted
+                loop>
+                <source src="videos/irreparable.mp4" type="video/mp4" id="ShortVidSource">
+            </video>
+        </div>
         <img src="images/luminar-logo.png" alt="">
     </div>
 </div>
@@ -840,6 +848,10 @@
     const LyricsBtn = document.getElementById("LyricsBtn")
 
     const Lyrics = document.getElementById("Lyrics")
+
+    const ShortVid = document.getElementById("ShortVid")
+    
+    const ShortVidSource = document.getElementById("ShortVidSource");
 
     LyricsBtn.addEventListener("click", () => {
         if(LyricsPopup.style.display === "none" && window.innerWidth > 500){
@@ -1082,6 +1094,9 @@
         const songAudio =
             song.dataset.audio;
 
+        const songVideo = 
+            song.dataset.video;
+
         // UPDATE PLAYER
 
         playerTitle.textContent =
@@ -1135,6 +1150,16 @@
             (song.dataset.lyrics || "").replace(/\\n/g, "<br>");
         
         // PLAY AUDIO
+
+        if (songVideo) {
+            ShortVidSource.src = songVideo;
+            ShortVid.load();
+
+            ShortVid.addEventListener("loadeddata", () => {
+                ShortVid.currentTime = 0;
+                ShortVid.play();
+            }, { once: true });
+        }
 
         audioContext.resume();
         audio.play();
