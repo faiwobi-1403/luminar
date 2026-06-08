@@ -1019,7 +1019,8 @@
     });
 
 
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", async (e) => {
+
         const isTyping =
             document.activeElement === searchInput ||
             document.activeElement.tagName.toLowerCase() === "input" ||
@@ -1030,12 +1031,16 @@
         if (e.code === "Space") {
             e.preventDefault();
 
+            await audioContext.resume();
+
             if (audio.paused) {
-                audio.play();
+                await audio.play();
+
                 playBtn.style.display = "none";
                 pauseBtn.style.display = "block";
             } else {
                 audio.pause();
+
                 pauseBtn.style.display = "none";
                 playBtn.style.display = "block";
             }
@@ -1352,7 +1357,6 @@
 
     });
     
-
     // SEEK
 
     progress.addEventListener("input", () => {
@@ -1412,7 +1416,6 @@
         requestAnimationFrame(animate);
 
         analyser.getByteFrequencyData(dataArray);
-        console.log(dataArray[0]);
 
         ctx.clearRect(
             0,
