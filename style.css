@@ -1092,6 +1092,40 @@ a[aria-current="page"] {
     backdrop-filter: var(--blur-normal);
 }
 
+.song-info-extended-box div{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.song-info-extended-box video{
+    position: absolute;
+    left: 83%;
+    top: 57%;
+    transform: translate(-50%, -50%);
+    display: block;
+    opacity: 0.5;
+    border: 3px solid var(--border);
+    border-radius: 10px;
+    height: 380px;
+    width: 250px;
+    object-fit: cover;
+
+}
+
+@media (max-width: 1400px) {
+    .song-info-extended-box video{
+        display: none;
+    }
+}
+
+@media (max-height: 750px) {
+        .song-info-extended-box video{
+        display: none;
+    }
+}
+
 .lyrics-popup-box{
     font-size: 120%;
     background-color: var(--popup-bg);
