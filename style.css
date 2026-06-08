@@ -1018,22 +1018,6 @@ a[aria-current="page"] {
     position: absolute;
     inset: -100%;
     background-image: conic-gradient(
-        transparent,
-        transparent,
-        var(--accent),
-        transparent,
-        transparent
-    );
-    animation: rotateBorder 8s linear infinite;
-    opacity: 0.1;
-    transition: opacity 0.3s;
-    z-index: 0;
-}
-
-.latest-releases-home li:hover::before,
-.latest-releases li:hover::before {
-    opacity: 0.6;
-    background-image: conic-gradient(
         var(--gradient1),
         var(--gradient2),
         var(--gradient3),
@@ -1041,6 +1025,14 @@ a[aria-current="page"] {
         var(--gradient5)
     );
     animation: rotateBorder 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.latest-releases-home li:hover::before,
+.latest-releases li:hover::before {
+    opacity: 0.6;
 }
 
 .latest-releases-home li::after,
