@@ -329,7 +329,7 @@ a[aria-current="page"] {
     width: 100vw;
     height: 50%;
     display: block;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 /* ── quote ── */
@@ -1868,6 +1868,10 @@ a[aria-current="page"] {
 }
 
 .shortcut-content{
+    max-height: 50%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
     background: var(--popup-bg);
     padding: 30px;
     border: 1px solid var(--border);
