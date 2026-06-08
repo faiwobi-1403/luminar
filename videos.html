@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Luminar - Videos</title>
+    <link rel="icon" href="images/luminar-logo-small.png">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="images/luminar-logo.png" class="luminar-logo" id="logo" alt="">
+        <ul class="navlist" id="navlist">
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li><a href="about.html" id="nav-about">About Me</a></li>
+            <li><a href="music.html" id="nav-music">Music</a></li>
+            <li><a href="videos.html" id="nav-videos" aria-current="page">Videos</a></li>
+            <li><a href="files.html" id="nav-files">Files</a></li>
+        </ul>
+    </nav>
+<div class="background-image-crop">
+    <img src="images/taki-bridge.jpg" alt="">
+    <div class="text-on-image">
+        <h1 id="videos-hero-title">Videos</h1>
+        <p data-lang="heroSubtitle">Find all my videos here</p>
+    </div>
+</div>
+<div class="search">
+    <div>
+        <input type="text" placeholder="Search videos...">
+        <a href=""><img src="images/search.png" alt=""></a>
+    </div>  
+</div>
+<div class="results">
+    <h1>Search Results</h1>
+    <div class="search-results">
+        <ul class="search-results-list" id="search-results-list">
+        </ul>
+    </div>    
+</div>
+<div class="main-content">
+    <div class="text-1">
+        <h2 data-lang="videosTitle">Videos</h2>
+        <div class="vid-container">
+            <iframe
+            src="https://www.youtube.com/embed/bjVLU2l9zsI"
+            title="YouTube video player"
+            frameborder="0"
+            allowfullscreen data-search="a jazzy groovy beat i made">
+            </iframe>
+        </div>     
+    </div>
+</div>
+<div class="footer">
+    <img src="images/luminar-logo.png" class="logo-footer" alt="logo">
+    <ul class="social-media">
+        <li><a href="https://www.tiktok.com/@prod.luminar?_r=1&_t=ZN-96M1bp7JBuY"><img src="images/TikTok.png" alt=""></a></li>
+        <li><a href="https://youtube.com/@prod.luminar?si=uU-DsU_S15RflDt3"><img src="images/YouTube.png" alt=""></a></li>
+        <li><a href=""><img src="images/facobook.png" alt=""></a></li>
+        <li><a href="https://www.instagram.com/luminar_music/"><img src="images/Insta.png" alt=""></a></li>
+        <li><a href="https://discord.gg/rSsydXQe"><img src="images/Discord.png" alt=""></a></li>
+        <li><a href=""><img src="images/Spotify.png" alt=""></a></li>
+        <li><a href=""><img src="images/Apple-music.png" alt=""></a></li>
+        <li><a href=""><img src="images/Amazon-music.png" alt=""></a></li>
+        <li><a href=""><img src="images/Deezer.png" alt=""></a></li>
+    </ul>
+    <div class="lang-select">
+        <button id="lang-btn">
+            <img src="images/globe.png" alt="globe">
+            <p data-lang="language">Language</p>
+        </button>
+        <ul class="lang-list" id="lang-list">
+            <li id="lang-en">English</li>
+            <li id="lang-de">Deutsch</li>
+            <li id="lang-fr">Français</li>
+            <li id="lang-es">Español</li>
+            <li id="lang-pt">Português</li>
+            <li id="lang-pl">Polski</li>
+            <li id="lang-jp">日本語</li>
+            <li id="lang-zh">简体中文</li>
+            <li id="lang-kr">한국어</li>
+        </ul>
+    </div>
+    <ul class="navlist-footer">
+        <li><a href="index.html" id="footer-home">Home</a></li>
+        <li><a href="about.html" id="footer-about">About Me</a></li>
+        <li><a href="music.html" id="footer-music">Music</a></li>
+        <li><a href="videos.html" id="footer-videos" aria-current="page">Videos</a></li>
+        <li><a href="files.html" id="footer-files">Files</a></li>
+    </ul>
+    <div class="footer-bottom">
+        <p data-lang="copyright"></p>
+    </div>
+</div>
+<script>
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } 
+        
+        else {
+            navbar.classList.remove("scrolled");
+        }
+
+    });
+
+    const Logo = document.getElementById("logo")
+    const NavList = document.getElementById("navlist")
+
+    Logo.addEventListener("click", () =>{
+        if(NavList.style.display === "none" && window.innerWidth < 950){
+            NavList.style.display = "flex";
+        } else if (window.innerWidth < 950) {
+            NavList.style.display = "none";
+        }        
+    });
+    
+    const searchInput = document.querySelector(".search input");
+    const items = document.querySelectorAll(".search-results-list li");
+    const resultsBox = document.querySelector(".results");
+
+    resultsBox.style.display = "none";
+
+    searchInput.addEventListener("input", function () {
+
+        const value = searchInput.value.toLowerCase();
+
+        if (value.trim() === "") {
+            resultsBox.style.display = "none";
+            return;
+        }
+
+        resultsBox.style.display = "block";
+
+        items.forEach(function(item) {
+
+            const text = item.textContent.toLowerCase();
+
+            if (text.includes(value)) {
+                item.style.display = "list-item";
+            } else {
+                item.style.display = "none";
+            }
+
+        });
+
+    });
+
+    const btn = document.getElementById("lang-btn");
+    const box = document.getElementById("lang-list");
+
+    box.style.display = "none";
+
+    btn.addEventListener("click", () => {
+        box.style.display = box.style.display === "none" ? "block" : "none";
+    });
+
+    document.querySelectorAll(".lang-list li").forEach(item => {
+        item.addEventListener("click", () => box.style.display = "none");
+    });
+
+    const translations = {
+        en: {
+            heroTitle: "Videos",
+            navHome: "Home",
+            navAbout: "About Me",
+            navMusic: "Music",
+            navVideos: "Videos",
+            navFiles: "Files",
+            footerHome: "Home",
+            footerAbout: "About Me",
+            footerMusic: "Music",
+            footerVideos: "Videos",
+            footerFiles: "Files",
+            heroSubtitle: "Find all my videos here",
+            searchPlaceholder: "Search videos...",
+            videosTitle: "Videos",
+            videosComingSoon: "No videos available at the moment. Coming soon...",
+            language: "Language",
+            copyright: "Copyright ©2026 designed by Felix Iwobi"
+        },
+
+        de: {
+            heroTitle: "Videos",
+            navHome: "Startseite",
+            navAbout: "Über mich",
+            navMusic: "Musik",
+            navVideos: "Videos",
+            navFiles: "Dateien",
+            footerHome: "Startseite",
+            footerAbout: "Über mich",
+            footerMusic: "Musik",
+            footerVideos: "Videos",
+            footerFiles: "Dateien",
+            heroSubtitle: "Hier findest du alle meine Videos",
+            searchPlaceholder: "Videos suchen...",
+            videosTitle: "Videos",
+            videosComingSoon: "Zurzeit sind keine Videos verfügbar. Kommt bald...",
+            language: "Sprache",
+            copyright: "Copyright ©2026 gestaltet von Felix Iwobi"
+        },
+
+        fr: {
+            heroTitle: "Vidéos",
+            navHome: "Accueil",
+            navAbout: "À propos",
+            navMusic: "Musique",
+            navVideos: "Vidéos",
+            navFiles: "Fichiers",
+            footerHome: "Accueil",
+            footerAbout: "À propos",
+            footerMusic: "Musique",
+            footerVideos: "Vidéos",
+            footerFiles: "Fichiers",
+            heroSubtitle: "Retrouvez toutes mes vidéos ici",
+            searchPlaceholder: "Rechercher des vidéos...",
+            videosTitle: "Vidéos",
+            videosComingSoon: "Aucune vidéo disponible pour le moment. Bientôt disponible...",
+            language: "Langue",
+            copyright: "Copyright ©2026 conçu par Felix Iwobi"
+        },
+
+        es: {
+            heroTitle: "Videos",
+            navHome: "Inicio",
+            navAbout: "Sobre mí",
+            navMusic: "Música",
+            navVideos: "Videos",
+            navFiles: "Archivos",
+            footerHome: "Inicio",
+            footerAbout: "Sobre mí",
+            footerMusic: "Música",
+            footerVideos: "Videos",
+            footerFiles: "Archivos",
+            heroSubtitle: "Aquí encontrarás todos mis vídeos",
+            searchPlaceholder: "Buscar videos...",
+            videosTitle: "Videos",
+            videosComingSoon: "No hay videos disponibles por el momento. Próximamente...",
+            language: "Idioma",
+            copyright: "Copyright ©2026 diseñado por Felix Iwobi"
+        },
+
+        pt: {
+            heroTitle: "Vídeos",
+
+            navHome: "Início",
+            navAbout: "Sobre mim",
+            navMusic: "Música",
+            navVideos: "Vídeos",
+            navFiles: "Arquivos",
+
+            footerHome: "Início",
+            footerAbout: "Sobre mim",
+            footerMusic: "Música",
+            footerVideos: "Vídeos",
+            footerFiles: "Arquivos",
+
+            heroSubtitle: "Encontre todos os meus vídeos aqui",
+
+            searchPlaceholder: "Pesquisar vídeos...",
+
+            videosTitle: "Vídeos",
+            videosComingSoon: "Nenhum vídeo disponível no momento. Em breve...",
+
+            language: "Idioma",
+
+            copyright: "Copyright ©2026 projetado por Felix Iwobi"
+        },
+
+        pl: {
+            heroTitle: "Wideo",
+
+            navHome: "Strona główna",
+            navAbout: "O mnie",
+            navMusic: "Muzyka",
+            navVideos: "Wideo",
+            navFiles: "Pliki",
+
+            footerHome: "Strona główna",
+            footerAbout: "O mnie",
+            footerMusic: "Muzyka",
+            footerVideos: "Wideo",
+            footerFiles: "Pliki",
+
+            heroSubtitle: "Znajdziesz tutaj wszystkie moje filmy",
+
+            searchPlaceholder: "Szukaj filmów...",
+
+            videosTitle: "Wideo",
+            videosComingSoon: "Obecnie brak dostępnych filmów. Wkrótce...",
+
+            language: "Język",
+
+            copyright: "Copyright ©2026 projekt: Felix Iwobi"
+        },
+
+        jp: {
+            heroTitle: "動画",
+            navHome: "ホーム",
+            navAbout: "私について",
+            navMusic: "音楽",
+            navVideos: "動画",
+            navFiles: "ファイル",
+            footerHome: "ホーム",
+            footerAbout: "私について",
+            footerMusic: "音楽",
+            footerVideos: "動画",
+            footerFiles: "ファイル",
+            heroSubtitle: "ここですべての動画をご覧いただけます",
+            searchPlaceholder: "動画を検索...",
+            videosTitle: "動画",
+            videosComingSoon: "現在利用可能な動画はありません。近日公開予定...",
+            language: "言語",
+            copyright: "Copyright ©2026 Felix Iwobi"
+        },
+
+        zh: {
+            heroTitle: "视频",
+            navHome: "主页",
+            navAbout: "关于我",
+            navMusic: "音乐",
+            navVideos: "视频",
+            navFiles: "文件",
+            footerHome: "主页",
+            footerAbout: "关于我",
+            footerMusic: "音乐",
+            footerVideos: "视频",
+            footerFiles: "文件",
+            heroSubtitle: "在这里找到我所有的视频",
+            videosTitle: "视频",
+            videosComingSoon: "目前没有可用视频。敬请期待...",
+            searchPlaceholder: "搜索视频...",
+            language: "语言",
+            copyright: "Copyright ©2026 Felix Iwobi"
+        },
+
+        kr: {
+            heroTitle: "영상",
+
+            navHome: "홈",
+            navAbout: "소개",
+            navMusic: "음악",
+            navVideos: "영상",
+            navFiles: "파일",
+
+            footerHome: "홈",
+            footerAbout: "소개",
+            footerMusic: "음악",
+            footerVideos: "영상",
+            footerFiles: "파일",
+
+            heroSubtitle: "여기에서 제 모든 영상을 찾을 수 있습니다",
+
+            searchPlaceholder: "영상 검색...",
+
+            videosTitle: "영상",
+            videosComingSoon: "현재 이용 가능한 영상이 없습니다. 곧 공개됩니다...",
+
+            language: "언어",
+
+            copyright: "Copyright ©2026 Felix Iwobi"
+        }
+    };
+
+    function setLanguage(lang) {
+
+        const t = translations[lang];
+
+        document.querySelectorAll("[data-lang]").forEach(element => {
+
+            const key = element.dataset.lang;
+
+            if (t[key]) {
+                element.textContent = t[key];
+            }
+
+        });
+
+    document.getElementById("videos-hero-title").textContent = t.heroTitle;
+
+    document.getElementById("nav-home").textContent = t.navHome;
+    document.getElementById("nav-about").textContent = t.navAbout;
+    document.getElementById("nav-music").textContent = t.navMusic;
+    document.getElementById("nav-videos").textContent = t.navVideos;
+    document.getElementById("nav-files").textContent = t.navFiles;
+
+    document.getElementById("footer-home").textContent = t.footerHome;
+    document.getElementById("footer-about").textContent = t.footerAbout;
+    document.getElementById("footer-music").textContent = t.footerMusic;
+    document.getElementById("footer-videos").textContent = t.footerVideos;
+    document.getElementById("footer-files").textContent = t.footerFiles;
+
+    document.querySelector(".search input").placeholder = t.searchPlaceholder;
+
+    localStorage.setItem("language", lang);
+
+    }
+
+    document.getElementById("lang-en").addEventListener("click", () => setLanguage("en"));
+    document.getElementById("lang-de").addEventListener("click", () => setLanguage("de"));
+    document.getElementById("lang-fr").addEventListener("click", () => setLanguage("fr"));
+    document.getElementById("lang-es").addEventListener("click", () => setLanguage("es"));
+    document.getElementById("lang-jp").addEventListener("click", () => setLanguage("jp"));
+    document.getElementById("lang-zh").addEventListener("click", () => setLanguage("zh"));
+    document.getElementById("lang-pt").addEventListener("click", () => setLanguage("pt"));
+    document.getElementById("lang-kr").addEventListener("click", () => setLanguage("kr"));
+    document.getElementById("lang-pl").addEventListener("click", () => setLanguage("pl"));
+
+    const saved = localStorage.getItem("language");
+    if (saved && translations[saved]) setLanguage(saved);
+</script>
+</body>
+</html>
