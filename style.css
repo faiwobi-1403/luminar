@@ -302,6 +302,7 @@ a[aria-current="page"] {
     align-items: center;
     gap: 12px;
     padding: 0;
+    z-index: 150;
 }
 
 .text-on-image p {
@@ -319,6 +320,16 @@ a[aria-current="page"] {
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0);   }
+}
+
+#visualizer{
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    width: 100vw;
+    height: 50%;
+    display: block;
+    opacity: 0.25;
 }
 
 /* ── quote ── */
@@ -462,34 +473,6 @@ a[aria-current="page"] {
     box-sizing: border-box;
     overflow: hidden;
 }
-
-/*.song-popup-box::before{
-    content: "";
-    position: absolute;
-    inset: -100%;
-    padding: 10px;
-    background-image: conic-gradient(
-        var(--gradient1),
-        var(--gradient2),
-        var(--gradient3),
-        var(--gradient4),
-        var(--gradient5),
-        var(--gradient1)
-    );
-    border-radius: inherit;
-    filter: blur(1px);
-    z-index: -2;
-    animation: rotateBorder 4s linear infinite;
-}
-
-.song-popup-box::after{
-    content: "";
-    position: absolute;
-    inset: 2px;
-    background-color: var(--popup-bg);
-    border-radius: 22px;
-    z-index: -1;
-} */
 
 .song-popup-box-small {
     display: none;
