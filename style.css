@@ -370,7 +370,7 @@ a[aria-current="page"] {
     inset: 0;
     backdrop-filter: var(--blur-normal);
     background-color: var(--overlay);
-    z-index: 99;
+    z-index: 200;
 }
 
 .popup-box {
