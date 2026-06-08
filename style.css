@@ -1018,14 +1018,14 @@ a[aria-current="page"] {
     position: absolute;
     inset: -100%;
     background-image: conic-gradient(
-        var(--gradient1),
-        var(--gradient2),
-        var(--gradient3),
-        var(--gradient4),
-        var(--gradient5)
+        transparent,
+        transparent,
+        var(--accent),
+        transparent,
+        transparent
     );
-    animation: rotateBorder 4s linear infinite;
-    opacity: 0;
+    animation: rotateBorder 8s linear infinite;
+    opacity: 0.1;
     transition: opacity 0.3s;
     z-index: 0;
 }
@@ -1033,6 +1033,14 @@ a[aria-current="page"] {
 .latest-releases-home li:hover::before,
 .latest-releases li:hover::before {
     opacity: 0.6;
+    background-image: conic-gradient(
+        var(--gradient1),
+        var(--gradient2),
+        var(--gradient3),
+        var(--gradient4),
+        var(--gradient5)
+    );
+    animation: rotateBorder 4s linear infinite;
 }
 
 .latest-releases-home li::after,
