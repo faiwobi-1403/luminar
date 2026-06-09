@@ -1110,13 +1110,15 @@ a[aria-current="page"] {
     object-fit: cover;
     inset: -3px;
     background: linear-gradient(
-    90deg,
+       90deg,
         var(--gradient1),
         var(--gradient2),
         var(--gradient3),
         var(--gradient4),
         var(--gradient5)
     );
+    background-size: 300% 300%;
+    animation: Glow 4s linear infinite;
 }
 
 @media (max-width: 1000px) {
