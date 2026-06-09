@@ -859,7 +859,6 @@
             "brightness(0) saturate(100%) invert(55%) sepia(11%) saturate(1122%) hue-rotate(225deg) brightness(89%) contrast(86%)";
             LyricsBtn.style.opacity = "1";
             LyricsPopup.style.display = "block";
-            menuBtn.style.filter = "none";
         } else {
             LyricsPopup.style.display = "none";
             LyricsBtn.style.filter = "none";
@@ -870,6 +869,7 @@
         playerCover2.style.transform = "translateY(20px)";
 
         if(playerCover2.style.display === "none"){
+            menuBtn.style.filter = "none";
             playerCover2.style.display = "block";
             setTimeout(() => {
                 playerCover2.style.transform = "translateY(0)";
@@ -911,13 +911,17 @@
     });
 
     function LyricsDesignUpdate() {
-        if (window.innerWidth > 500 && LyricsMobile.style.display === "block" && LyricsMobile.style.opacity !== "0"){
+        if (window.innerWidth > 500 && LyricsMobile.style.display === "block" && LyricsMobile.style.opacity !== "0" && playerCover2.style.display === "block"){
             LyricsMobile.style.display = "none";
             LyricsPopup.style.display = "block";
+            LyricsBtn.style.filter =
+            "brightness(0) saturate(100%) invert(55%) sepia(11%) saturate(1122%) hue-rotate(225deg) brightness(89%) contrast(86%)";
         } else if(window.innerWidth <= 500 && LyricsPopup.style.display === "block"){
             LyricsPopup.style.display = "none";
             
             playerCover2.style.display = "block";
+            imageIcon.style.filter = 
+            "brightness(0) saturate(100%) invert(55%) sepia(11%) saturate(1122%) hue-rotate(225deg) brightness(89%) contrast(86%)";
             playerCover2.style.opacity = "0.3";
             playerCover2.style.transform = "rotateY(180deg)";
             popup.style.display = "none";
