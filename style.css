@@ -1094,33 +1094,38 @@ a[aria-current="page"] {
 
 .song-info-extended-box div{
     width: 100%;
-    position: relative;
+
     display: flex;
     justify-content: space-between;
 }
 
 .song-info-extended-box video{
-    position: absolute;
-    left: 83%;
-    top: 57%;
-    transform: translate(-50%, -50%);
     display: block;
     opacity: 0.5;
     border: 3px solid var(--border);
     border-radius: 10px;
-    height: 380px;
+    overflow: hidden;
+    height: 250px;
     width: 250px;
     object-fit: cover;
-
+    inset: -3px;
+    background: linear-gradient(
+    90deg,
+        var(--gradient1),
+        var(--gradient2),
+        var(--gradient3),
+        var(--gradient4),
+        var(--gradient5)
+    );
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
     .song-info-extended-box video{
         display: none;
     }
 }
 
-@media (max-height: 750px) {
+@media (max-height: 350px) {
         .song-info-extended-box video{
         display: none;
     }
