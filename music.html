@@ -527,7 +527,9 @@
         <h2 data-lang="shortCuts">Keyboard Shortcuts</h2>
 
         <p><kbd>Space</kbd> <span data-lang="playPause">Play / Pause</span></p>
-        <p><kbd>R</kbd> <span data-lang="shuffle">Shuffle</span></p>
+        <p><kbd>→</kbd> <span data-lang="ArrowRight">Next Song</span></p>
+        <p><kbd>←</kbd> <span data-lang="ArrowLeft">Previous Song</span></p>    
+        <p><kbd>R</kbd> <span data-lang="Repeat">Repeat Song</span></p>
         <p><kbd>M</kbd> <span data-lang="songInfo">Song info</span></p>
         <p><kbd>I</kbd> <span data-lang="SongImage">Song image</span></p>
         <p><kbd>L</kbd> <span data-lang="Lyrics">Show Lyrics</span></p>
@@ -680,6 +682,8 @@
         <div class="player-controls">
             <img src="images/burger-menu.png" id="songmenuBtn" alt="">
 
+            <img src="images/previous.png" id="Previous" alt="">
+
             <img src="images/resume.png"
                 class="resume-btn"
                 id="playBtn"
@@ -689,8 +693,10 @@
                 class="pause-btn"
                 id="pauseBtn"
                 alt="">
+
+            <img src="images/following.png" id="Following" alt="">
                 
-            <img src="images/shuffle.png" id="shuffleBtn" alt="">
+            <img src="images/repeat.png" id="Repeat" alt="">
         </div>
 
         <div class="song-player-span">
@@ -998,7 +1004,35 @@
         if (e.repeat) return;
         if (isTyping) return;
         if (e.key.toLowerCase() === "r") {
-            shuffleBtn.click();
+            RepaeatBtn.click();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+
+        const isTyping =
+        document.activeElement === searchInput ||
+        document.activeElement.tagName.toLowerCase() === "input" ||
+        document.activeElement.tagName.toLowerCase() === "textarea";
+
+        if (e.repeat) return;
+        if (isTyping) return;
+        if (e.key === "ArrowRight") {
+            FollowingBtn.click();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+
+        const isTyping =
+        document.activeElement === searchInput ||
+        document.activeElement.tagName.toLowerCase() === "input" ||
+        document.activeElement.tagName.toLowerCase() === "textarea";
+
+        if (e.repeat) return;
+        if (isTyping) return;
+        if (e.key === "ArrowLeft") {
+            PreviousBtn.click();
         }
     });
 
@@ -1306,8 +1340,22 @@
 
     });
 
-    const shuffleBtn =
-    document.getElementById("shuffleBtn");
+    // REPEAT SONG
+
+    const RepaeatBtn =
+    document.getElementById("Repeat");
+
+    RepaeatBtn.addEventListener("click", () => {
+        if(RepaeatBtn.style.filter === "none"){
+            RepaeatBtn.style.filter =
+            "brightness(0) saturate(100%) invert(55%) sepia(11%) saturate(1122%) hue-rotate(225deg) brightness(89%) contrast(86%)";
+        } else {
+            RepaeatBtn.style.filter = "none";
+        }
+    });
+
+    const FollowingBtn 
+    = document.getElementById("Following");
 
     // SHUFFLE SONG
  
@@ -1315,7 +1363,7 @@
         spotifyLinkextra.href = song.dataset.spotify || "";
     }
 
-    shuffleBtn.addEventListener("click", () => {
+    FollowingBtn.addEventListener("click", () => {
 
         // GET RANDOM SONG
 
@@ -1399,6 +1447,13 @@
     // SONG END
 
     audio.addEventListener("ended", () => {
+
+        if (RepaeatBtn.style.filter ===
+            "brightness(0) saturate(100%) invert(55%) sepia(11%) saturate(1122%) hue-rotate(225deg) brightness(89%) contrast(86%)") {
+            audio.currentTime = 0;
+            audio.play();
+            return;
+        }
 
         audio.currentTime = 0;
 
@@ -1723,7 +1778,9 @@
 
         shortCuts: "Keyboard Shortcuts",
         playPause: "Play / Pause",
-        shuffle: "Shuffle",
+        ArrowRight: "Next Song",
+        ArrowLeft: "Previous Song",
+        Repeat: "Repeat Song",
         songInfo: "Song info",
         SongImage: "Song image",
         Lyrics: "Show Lyrics",
@@ -1770,7 +1827,9 @@
 
         shortCuts: "Tastenkombinationen",
         playPause: "Wiedergabe / Pause",
-        shuffle: "Zufällige Wiedergabe",
+        ArrowRight: "Nächster Song",
+        ArrowLeft: "Vorheriger Song",
+        Repeat: "Song wiederholen",
         songInfo: "Songinformationen",
         SongImage: "Coverbild",
         Lyrics: "Liedtext anzeigen",
@@ -1817,7 +1876,9 @@
 
         shortCuts: "Raccourcis clavier",
         playPause: "Lecture / Pause",
-        shuffle: "Lecture aléatoire",
+        ArrowRight: "Chanson suivante",
+        ArrowLeft: "Chanson précédente",
+        Repeat: "Répéter la chanson",
         songInfo: "Informations sur la chanson",
         SongImage: "Image de la chanson",
         Lyrics: "Afficher les paroles",
@@ -1864,7 +1925,9 @@
 
         shortCuts: "Atajos de teclado",
         playPause: "Reproducir / Pausar",
-        shuffle: "Reproducción aleatoria",
+        ArrowRight: "Siguiente canción",
+        ArrowLeft: "Canción anterior",
+        Repeat: "Repetir canción",
         songInfo: "Información de la canción",
         SongImage: "Portada de la canción",
         Lyrics: "Mostrar letras",
@@ -1911,7 +1974,9 @@
 
         shortCuts: "Skróty klawiaturowe",
         playPause: "Odtwarzanie / Pauza",
-        shuffle: "Losowe odtwarzanie",
+        ArrowRight: "Następny utwór",
+        ArrowLeft: "Poprzedni utwór",
+        Repeat: "Powtórz utwór",
         songInfo: "Informacje o utworze",
         SongImage: "Okładka utworu",
         Lyrics: "Pokaż tekst piosenki",
@@ -1958,7 +2023,9 @@
 
         shortCuts: "キーボードショートカット",
         playPause: "再生 / 一時停止",
-        shuffle: "シャッフル",
+        ArrowRight: "次の曲",
+        ArrowLeft: "前の曲",
+        Repeat: "曲をリピート",
         songInfo: "曲情報",
         SongImage: "楽曲画像",
         Lyrics: "歌詞を表示",
@@ -2005,7 +2072,9 @@
 
         shortCuts: "键盘快捷键",
         playPause: "播放 / 暂停",
-        shuffle: "随机播放",
+        ArrowRight: "下一首歌曲",
+        ArrowLeft: "上一首歌曲",
+        Repeat: "单曲循环",
         songInfo: "歌曲信息",
         SongImage: "歌曲图片",
         Lyrics: "显示歌词",
@@ -2052,7 +2121,9 @@
         
         shortCuts: "키보드 단축키",
         playPause: "재생 / 일시정지",
-        shuffle: "셔플",
+        ArrowRight: "다음 곡",
+        ArrowLeft: "이전 곡",
+        Repeat: "곡 반복",
         songInfo: "곡 정보",
         SongImage: "곡 이미지",
         Lyrics: "가사 보기",
