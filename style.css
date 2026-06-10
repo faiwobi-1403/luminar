@@ -1502,7 +1502,7 @@ a[aria-current="page"] {
 .player-controls{
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .resume-btn,
@@ -1527,15 +1527,28 @@ a[aria-current="page"] {
 }
 
 #songmenuBtn,
-#shuffleBtn{
+#Repeat{
     width: 20px;
     height: 20px;
     object-fit: cover;
     opacity: 0.7;
 }
 
+#Previous,
+#Following{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+#Previous:hover,
+#Following:hover{
+    opacity: 1;
+}
+
 #songmenuBtn:hover,
-#shuffleBtn:hover{
+#Repeat:hover{
     opacity: 1;
     transform: scale(1.1);
     transition: 
